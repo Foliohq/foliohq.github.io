@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://foliohq.github.io/sitemap.xml
