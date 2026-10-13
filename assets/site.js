@@ -22,6 +22,44 @@ const STORE_URL = "https://chromewebstore.google.com/detail/ikcoodldjhpklnhbcfne
     if (live) { a.target = "_blank"; a.rel = "noopener"; }
   });
 
+  // Pro waitlist: saves the email to Supabase (insert-only table, public key).
+  var WAITLIST_URL = "https://ddogtxwckmgdvsdmuntt.supabase.co/rest/v1/waitlist";
+  var WAITLIST_KEY = "sb_publishable_ilY6aJMw9kc5eXYpzglwQg_NEYarv1K";
+  var wlForm = document.getElementById("waitlist");
+  if (wlForm) {
+    var wlMsg = wlForm.querySelector(".wl-msg");
+    var wlBtn = wlForm.querySelector("button[type=submit]");
+    var wlInput = wlForm.elements.email;
+    var wlHoney = wlForm.elements.website;
+    var showMsg = function (text, cls) { wlMsg.textContent = text; wlMsg.className = "wl-msg " + cls; wlMsg.hidden = false; };
+    var showDone = function () {
+      var done = document.createElement("p");
+      done.className = "wl-msg ok";
+      done.setAttribute("role", "status");
+      done.textContent = "You're on the list! We'll email you when Pro launches.";
+      wlForm.replaceWith(done);
+    };
+    wlForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var email = wlInput.value.trim().toLowerCase();
+      if (wlHoney && wlHoney.value) { showDone(); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showMsg("Please enter a valid email address.", "err"); wlInput.focus(); return; }
+      wlBtn.disabled = true;
+      wlMsg.hidden = true;
+      fetch(WAITLIST_URL, {
+        method: "POST",
+        headers: { "apikey": WAITLIST_KEY, "Authorization": "Bearer " + WAITLIST_KEY, "Content-Type": "application/json", "Prefer": "return=minimal" },
+        body: JSON.stringify({ email: email })
+      }).then(function (res) {
+        if (res.status === 201 || res.status === 409) { showDone(); return; }
+        throw new Error("status " + res.status);
+      }).catch(function () {
+        wlBtn.disabled = false;
+        showMsg("Something went wrong. Email us at foliosupport.team@gmail.com.", "err");
+      });
+    });
+  }
+
   // Sticky nav: translucent blur once the page has scrolled.
   var nav = document.querySelector(".nav");
   function onScroll() { if (nav) nav.classList.toggle("scrolled", window.scrollY > 8); }

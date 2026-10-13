@@ -156,7 +156,13 @@
           <li>Unlimited Lio (fair use)</li>
           <li>Priority support</li>
         </ul>
-        <a class="btn btn-block" href="mailto:foliosupport.team@gmail.com?subject=Folio%20Pro%20waitlist">Join the waitlist</a>
+        <form class="waitlist" id="waitlist" novalidate>
+          <label class="sr-only" for="waitlist-email">Email address</label>
+          <input class="wl-input" id="waitlist-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" maxlength="254" required>
+          <div class="wl-hp" aria-hidden="true"><label>Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <button class="btn btn-block" type="submit">Join the waitlist</button>
+          <p class="wl-msg" role="status" aria-live="polite" hidden></p>
+        </form>
       </article>
     </div>
     <p class="founding reveal"><strong>Founding member price: $9 USD a month, locked for life, for the first 100 people on the Pro waitlist.</strong></p>
