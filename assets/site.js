@@ -1,7 +1,6 @@
 // ── Config ───────────────────────────────────────────────────────────────
-// Leave empty until Folio is live on the Chrome Web Store. Paste the store
-// listing URL here and every primary button switches in one place.
-const STORE_URL = "";
+// Chrome Web Store listing URL. Every primary button uses it. Leave empty to fall back to early access.
+const STORE_URL = "https://chromewebstore.google.com/detail/ikcoodldjhpklnhbcfnecjpakoodkipl";
 // ─────────────────────────────────────────────────────────────────────────
 
 (function () {
@@ -10,7 +9,7 @@ const STORE_URL = "";
   var EARLY_ACCESS_URL = "mailto:foliosupport.team@gmail.com?subject=Folio%20early%20access";
   var live = STORE_URL !== "";
   var ctaUrl = live ? STORE_URL : EARLY_ACCESS_URL;
-  var ctaLabel = live ? "Add to Chrome, free" : "Get early access";
+  var ctaLabel = live ? "Add to Chrome" : "Get early access";
 
   // Primary buttons: label and link. Buttons with data-cta-link only take the link.
   document.querySelectorAll("[data-cta]").forEach(function (a) {
