@@ -6,7 +6,7 @@ const STORE_URL = "https://chromewebstore.google.com/detail/ikcoodldjhpklnhbcfne
 (function () {
   "use strict";
 
-  var EARLY_ACCESS_URL = "mailto:foliosupport.team@gmail.com?subject=Folio%20early%20access";
+  var EARLY_ACCESS_URL = "mailto:support@kepful.app?subject=Kepful%20early%20access";
   var live = STORE_URL !== "";
   var ctaUrl = live ? STORE_URL : EARLY_ACCESS_URL;
   var ctaLabel = live ? "Add to Chrome" : "Get early access";
@@ -55,7 +55,7 @@ const STORE_URL = "https://chromewebstore.google.com/detail/ikcoodldjhpklnhbcfne
         throw new Error("status " + res.status);
       }).catch(function () {
         wlBtn.disabled = false;
-        showMsg("Something went wrong. Email us at foliosupport.team@gmail.com.", "err");
+        showMsg("Something went wrong. Email us at support@kepful.app.", "err");
       });
     });
   }
