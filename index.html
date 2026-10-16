@@ -57,7 +57,7 @@
       <a class="text-link" href="#how-it-works">See how it works</a>
     </div>
     <ul class="facts"><li>Works with calls in your browser</li><li>Sign in with your email, no password</li><li>Free to start, no card</li></ul>
-    <div class="hero-shot"><div class="frame frame-popup"><picture><source srcset="/assets/img/popup.webp" type="image/webp"><img src="/assets/img/popup.png" width="776" height="1290" alt="The Kepful popup before a call with Maya Patel: last time she agreed Q4 priorities and a planning block, three open tasks, and three things to bring up." fetchpriority="high"></picture></div></div>
+    <div class="hero-shot"><div class="frame frame-popup"><picture><source srcset="/assets/img/popup-sm.webp 776w, /assets/img/popup.webp 1261w" sizes="(max-width: 700px) 340px, 420px" type="image/webp"><img src="/assets/img/popup.png" width="776" height="1430" alt="The Kepful popup before a call with Maya Patel: last time she agreed Q4 priorities but was nervous to delegate, three open tasks, and three things to bring up. Language is set to Auto-detect, Template to Coaching session, the microphone option is on, and Start Recording is ready." fetchpriority="high"></picture></div></div>
   </div>
 </section>
 
@@ -96,6 +96,8 @@
       <button class="tab" role="tab" id="tab-calls" aria-controls="panel-calls" aria-selected="false" tabindex="-1" type="button">Calls</button>
       <button class="tab" role="tab" id="tab-clients" aria-controls="panel-clients" aria-selected="false" tabindex="-1" type="button">Clients<span class="tab-flag">Core</span></button>
       <button class="tab" role="tab" id="tab-ask" aria-controls="panel-ask" aria-selected="false" tabindex="-1" type="button">Ask Kepful</button>
+      <button class="tab" role="tab" id="tab-languages" aria-controls="panel-languages" aria-selected="false" tabindex="-1" type="button">Languages</button>
+      <button class="tab" role="tab" id="tab-templates" aria-controls="panel-templates" aria-selected="false" tabindex="-1" type="button">Templates</button>
       <button class="tab" role="tab" id="tab-plans" aria-controls="panel-plans" aria-selected="false" tabindex="-1" type="button">Plans</button>
     </div>
 
@@ -109,7 +111,7 @@
         <div class="subtabs" role="group" aria-label="Today screens"><button type="button" class="subtab" aria-pressed="true" data-shot="0">Recording</button><button type="button" class="subtab" aria-pressed="false" data-shot="1">Processing</button></div>
         <div class="win"><div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span>Kepful &middot; Today</span></div>
           <div class="shots">
-            <button class="shot is-on" type="button" data-lightbox data-full="/assets/img/shot-today-recording.webp" data-title="Today: recording" aria-label="Enlarge screenshot: recording a call"><img src="/assets/img/shot-today-recording-sm.webp" srcset="/assets/img/shot-today-recording-sm.webp 1120w, /assets/img/shot-today-recording.webp 2240w" sizes="(min-width: 1100px) 700px, 92vw" width="2240" height="1400" alt="The Kepful popup open during a call with Maya Patel, recording for 23 minutes, on top of the Today screen of the dashboard." loading="lazy" decoding="async"></button>
+            <button class="shot is-on" type="button" data-lightbox data-full="/assets/img/shot-today-recording.webp" data-title="Today: recording" aria-label="Enlarge screenshot: recording a call"><img src="/assets/img/shot-today-recording-sm.webp" srcset="/assets/img/shot-today-recording-sm.webp 1120w, /assets/img/shot-today-recording.webp 2240w" sizes="(min-width: 1100px) 700px, 92vw" width="2240" height="1400" alt="The Kepful popup open during a call with Maya Patel, recording for 23 minutes with live level meters for the call and her microphone, on top of the Today screen of the dashboard." loading="lazy" decoding="async"></button>
             <button class="shot" type="button" data-lightbox data-full="/assets/img/shot-today-processing.webp" data-title="Today: processing" aria-label="Enlarge screenshot: processing a call" tabindex="-1"><img src="/assets/img/shot-today-processing-sm.webp" srcset="/assets/img/shot-today-processing-sm.webp 1120w, /assets/img/shot-today-processing.webp 2240w" sizes="(min-width: 1100px) 700px, 92vw" width="2240" height="1400" alt="The Today screen right after the call: the audio is transcribed, the summary is being written, and the follow-up email and saving steps are waiting." loading="lazy" decoding="async"></button>
           </div>
         </div>
@@ -127,7 +129,7 @@
         <div class="win"><div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span>Kepful &middot; Calls</span></div>
           <div class="shots">
             <button class="shot is-on" type="button" data-lightbox data-full="/assets/img/shot-call-finished.webp" data-title="A finished call" aria-label="Enlarge screenshot: a finished call"><img src="/assets/img/shot-call-finished-sm.webp" srcset="/assets/img/shot-call-finished-sm.webp 1120w, /assets/img/shot-call-finished.webp 2240w" sizes="(min-width: 1100px) 700px, 92vw" width="2240" height="1400" alt="A finished call with Maya Patel: the transcript, a short summary, three action items, and a follow-up email draft with Copy and Open in Gmail buttons." loading="lazy" decoding="async"></button>
-            <button class="shot" type="button" data-lightbox data-full="/assets/img/shot-actions.webp" data-title="Action items" aria-label="Enlarge screenshot: action items" tabindex="-1"><img src="/assets/img/shot-actions-sm.webp" srcset="/assets/img/shot-actions-sm.webp 1120w, /assets/img/shot-actions.webp 2240w" sizes="(min-width: 1100px) 700px, 92vw" width="2240" height="1400" alt="The Action Items view listing ten tasks across clients with their date and status: To do, In progress or Done." loading="lazy" decoding="async"></button>
+            <button class="shot" type="button" data-lightbox data-full="/assets/img/shot-actions.webp" data-title="Action items" aria-label="Enlarge screenshot: action items" tabindex="-1"><img src="/assets/img/shot-actions-sm.webp" srcset="/assets/img/shot-actions-sm.webp 1120w, /assets/img/shot-actions.webp 2240w" sizes="(min-width: 1100px) 700px, 92vw" width="2240" height="1400" alt="The Action Items view listing twelve tasks across clients with their date and status: To do, In progress or Done." loading="lazy" decoding="async"></button>
           </div>
         </div>
       </div>
@@ -160,6 +162,36 @@
         <div class="win"><div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span>Kepful &middot; Ask Kepful</span></div>
           <div class="shots">
             <button class="shot is-on" type="button" data-lightbox data-full="/assets/img/shot-ask.webp" data-title="Ask Kepful" aria-label="Enlarge screenshot: Ask Kepful"><img src="/assets/img/shot-ask-sm.webp" srcset="/assets/img/shot-ask-sm.webp 1120w, /assets/img/shot-ask.webp 2240w" sizes="(min-width: 1100px) 700px, 92vw" width="2240" height="1400" alt="Ask Kepful answering what Maya committed to last time and what she is most nervous about, with the date of the call shown next to each answer." loading="lazy" decoding="async"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-languages" aria-labelledby="tab-languages" hidden>
+      <div class="panel-copy">
+        <h3>Calls in 99 languages</h3>
+        <p>Kepful transcribes calls in 99 languages. Leave it on Auto-detect and it works out the language for you, or pick one before you record. Accuracy varies by language.</p>
+        <ul class="ticks"><li>A searchable language picker in the popup</li><li>Every call shows the language it was transcribed in</li><li>If Kepful cannot tell, you pick the language and try again</li></ul>
+      </div>
+      <div class="panel-stage">
+        <div class="win"><div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span>Kepful &middot; Languages</span></div>
+          <div class="shots">
+            <button class="shot is-on" type="button" data-lightbox data-full="/assets/img/shot-language-call.webp" data-title="Language of a call" aria-label="Enlarge screenshot: a call transcribed in Spanish"><img src="/assets/img/shot-language-call-sm.webp" srcset="/assets/img/shot-language-call-sm.webp 1120w, /assets/img/shot-language-call.webp 2240w" sizes="(min-width: 1100px) 700px, 92vw" width="2240" height="1400" alt="A finished call with Luis Fernandez in History, marked Language: Spanish (detected automatically), with the summary, decision, action item and follow-up email written in Spanish." loading="lazy" decoding="async"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-templates" aria-labelledby="tab-templates" hidden>
+      <div class="panel-copy">
+        <h3>Notes that fit the job</h3>
+        <p>Pick a template before you record: coaching, sales, consulting, interview or your own. Kepful organises the notes under headings that fit the job, and every fact comes only from the call.</p>
+        <ul class="ticks"><li>Coaching, sales, consulting, interview or a custom template</li><li>Headings that fit the job, such as Client goals, Wins and Blocks</li><li>Run a saved call again with a different template</li></ul>
+      </div>
+      <div class="panel-stage">
+        <div class="win"><div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span>Kepful &middot; Templates</span></div>
+          <div class="shots">
+            <button class="shot is-on" type="button" data-lightbox data-full="/assets/img/shot-template-call.webp" data-title="A call written with a template" aria-label="Enlarge screenshot: a call written with the Coaching template"><img src="/assets/img/shot-template-call-sm.webp" srcset="/assets/img/shot-template-call-sm.webp 1120w, /assets/img/shot-template-call.webp 2240w" sizes="(min-width: 1100px) 700px, 92vw" width="2240" height="1400" alt="A finished call marked Template: Coaching session, with the summary organised under Client goals, Wins, Blocks, Insights, Commitments and homework, and Next-session focus, followed by the action items and a follow-up email draft." loading="lazy" decoding="async"></button>
           </div>
         </div>
       </div>
