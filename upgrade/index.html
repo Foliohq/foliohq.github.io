@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Upgrade to Kepful Pro | Kepful</title>
+<meta name="description" content="Secure checkout for Kepful Pro.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FAF6F0">
+<link rel="icon" href="/favicon.ico?v=kepful" sizes="48x48">
+<link rel="icon" type="image/png" href="/assets/img/favicon-32.png?v=kepful" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=kepful">
+<link rel="preload" href="/assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/upgrade.css">
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════
+   PADDLE CONFIG - the only thing to change when going live.
+   environment: "sandbox" while testing, "production" for real payments.
+   token:       the CLIENT-SIDE token from Paddle > Developer tools >
+                Authentication (sandbox tokens start with test_, live
+                tokens with live_). It is public by design - it can only
+                open checkouts, never read or change anything.
+   ═══════════════════════════════════════════════════════════════════════ */
+window.KEPFUL_PADDLE = {
+  environment: "sandbox",
+  token: "test_4d6a0f9cc0f7e0b7f358672186a"
+};
+</script>
+<script>document.documentElement.classList.add("js")</script>
+<script src="/assets/site.js" defer></script>
+</head>
+<body class="upgrade">
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav scrolled">
+  <div class="wrap nav-in">
+    <a class="brand" href="/" aria-label="Kepful home"><img class="word" src="/assets/img/wordmark.png" width="88" height="30" alt="Kepful"></a>
+    <div class="nav-right">
+      <a class="btn btn-sm btn-ghost" href="/">Back to Kepful</a>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="up">
+  <div class="glow" aria-hidden="true"><i class="g1"></i><i class="g2"></i></div>
+  <div class="wrap up-wrap">
+
+    <section class="up-card" id="checkout" data-state="loading" aria-live="polite" aria-busy="true">
+
+      <!-- Opening the secure checkout -->
+      <div class="up-state" data-for="loading">
+        <div class="up-spinner" aria-hidden="true"></div>
+        <span class="eyebrow">Kepful Pro</span>
+        <h1 tabindex="-1">Opening your secure checkout</h1>
+        <p class="up-lead">This takes a few seconds. A secure window from Paddle, our payment partner, will open on top of this page.</p>
+      </div>
+
+      <!-- The checkout is open (or was closed and can be opened again) -->
+      <div class="up-state" data-for="ready" hidden>
+        <span class="eyebrow">Kepful Pro</span>
+        <h1 tabindex="-1">Complete your upgrade</h1>
+        <p class="up-lead">Finish paying in the secure window. If it closed by accident, you can open it again, nothing has been charged yet.</p>
+        <div class="up-actions">
+          <button class="btn" type="button" id="upReopen">Open checkout again</button>
+          <a class="btn btn-ghost" href="/">Back to Kepful</a>
+        </div>
+      </div>
+
+      <!-- Something is wrong with the link, or checkout could not load -->
+      <div class="up-state" data-for="error" hidden>
+        <div class="up-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.4v.1"/></svg></div>
+        <h1 tabindex="-1" id="upErrTitle">This checkout link has expired</h1>
+        <p class="up-lead" id="upErrText">Go back to Kepful and click Upgrade again.</p>
+        <div class="up-actions">
+          <a class="btn" href="/" id="upErrBack">Back to Kepful</a>
+          <button class="btn btn-ghost" type="button" id="upErrReload" hidden>Try again</button>
+          <a class="btn btn-ghost" data-cta href="https://chromewebstore.google.com/detail/ikcoodldjhpklnhbcfnecjpakoodkipl" id="upErrAdd" hidden>Add to Chrome</a>
+        </div>
+      </div>
+
+      <!-- Payment completed -->
+      <div class="up-state up-success" data-for="success" hidden>
+        <div class="up-check" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none"><defs><linearGradient id="upGrad" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FF6A3D"/><stop offset="0.45" stop-color="#FF7F45"/><stop offset="1" stop-color="#FFB238"/></linearGradient></defs><circle class="ring" cx="32" cy="32" r="29"/><path class="tick" d="M19 33.5l9.5 9.5L45.5 24"/></svg>
+        </div>
+        <span class="eyebrow">Payment received</span>
+        <h1 tabindex="-1">You're Pro</h1>
+        <p class="up-lead">Thank you for upgrading. Go back to the Kepful extension in Chrome: the plan chip in the dashboard sidebar switches to <strong>Pro</strong> within a few seconds.</p>
+        <ol class="up-steps">
+          <li><span>1</span>Open Kepful from your Chrome toolbar, or open your dashboard.</li>
+          <li><span>2</span>The chip in the sidebar changes from Free to Pro. If it hasn't after a minute, click the dashboard tab to refresh it.</li>
+          <li><span>3</span>Manage or cancel any time in Settings &rarr; Plan and billing.</li>
+        </ol>
+        <p class="up-fine">A receipt from Paddle is on its way to your email.</p>
+        <div class="up-actions">
+          <a class="btn" href="/">Back to Kepful</a>
+        </div>
+      </div>
+
+    </section>
+
+    <ul class="up-assure" aria-label="Our promises">
+      <li>
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg></div>
+        <h2>Secure checkout by Paddle</h2>
+        <p>Paddle is our payment partner and the seller of record. We never see your card details.</p>
+      </li>
+      <li>
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.5-5.8M4 5v4.5h4.5"/></svg></div>
+        <h2>Cancel any time</h2>
+        <p>In Kepful, under Settings &rarr; Plan and billing. You keep Pro until the end of the period you paid for.</p>
+      </li>
+      <li>
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l7 2.8v5.4c0 4.2-2.8 7.2-7 8.8-4.2-1.6-7-4.6-7-8.8V6.3l7-2.8z"/><path d="M9 12l2.2 2.2L15 10.4"/></svg></div>
+        <h2>14-day refund</h2>
+        <p>Not happy? Ask within 14 days of your first payment for a full refund. <a href="/refund/">Refund Policy</a></p>
+      </li>
+    </ul>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="Kepful home"><img class="word" src="/assets/img/wordmark.png" width="88" height="30" alt="Kepful"></a>
+        <p class="tagline">Remember every client, call by call.</p>
+        <a class="btn btn-sm" data-cta href="https://chromewebstore.google.com/detail/ikcoodldjhpklnhbcfnecjpakoodkipl" target="_blank" rel="noopener">Add to Chrome</a>
+      </div>
+      <nav class="footer-col" aria-labelledby="f-product"><h2 id="f-product">Product</h2><a href="/#clients">Clients</a><a href="/#product">Product tour</a><a href="/#how-it-works">How it works</a><a href="/#pricing">Pricing</a><a href="/#faq">FAQ</a></nav>
+      <nav class="footer-col" aria-labelledby="f-legal"><h2 id="f-legal">Legal</h2><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Service</a><a href="/refund/">Refund Policy</a></nav>
+      <nav class="footer-col" aria-labelledby="f-contact"><h2 id="f-contact">Contact</h2><a href="mailto:support@kepful.app">support@kepful.app</a></nav>
+    </div>
+    <div class="footer-bottom"><span>This website uses no cookies and no trackers.</span><span>&copy; 2026 Kepful</span></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var CONFIG = window.KEPFUL_PADDLE || {};
+  var PADDLE_SRC = "https://cdn.paddle.com/paddle/v2/paddle.js";
+  var TXN_PATTERN = /^txn_[0-9a-z]{20,40}$/;
+  var PAID_KEY = "kepfulCheckoutPaid"; // tab-only flag so a reload after paying still shows "You're Pro"
+
+  var card = document.getElementById("checkout");
+  var panels = card.querySelectorAll(".up-state");
+  var errTitle = document.getElementById("upErrTitle");
+  var errText = document.getElementById("upErrText");
+  var errReload = document.getElementById("upErrReload");
+  var errAdd = document.getElementById("upErrAdd");
+  var reopen = document.getElementById("upReopen");
+
+  var txnId = null;
+  var state = "loading";
+  var completed = false;
+  var watchdog = null;
+
+  // Messages. The "expired" wording is what people see for any dead link.
+  var ERRORS = {
+    missing: {
+      title: "We couldn't find your checkout",
+      text: "Open Kepful in Chrome, click Upgrade and choose your plan. Checkout starts from there, so your purchase is linked to your account.",
+      add: true
+    },
+    invalid: {
+      title: "This checkout link isn't valid",
+      text: "Go back to Kepful and click Upgrade again."
+    },
+    expired: {
+      title: "This checkout link has expired",
+      text: "Go back to Kepful and click Upgrade again."
+    },
+    script: {
+      title: "We couldn't load the secure checkout",
+      text: "Please check your connection, and if you use an ad or content blocker, allow this page. Then try again.",
+      reload: true
+    }
+  };
+
+  function show(next) {
+    state = next;
+    card.setAttribute("data-state", next);
+    card.setAttribute("aria-busy", next === "loading" ? "true" : "false");
+    panels.forEach(function (p) { p.hidden = p.getAttribute("data-for") !== next; });
+    var heading = card.querySelector('.up-state[data-for="' + next + '"] h1');
+    if (heading && next !== "loading") heading.focus({ preventScroll: true });
+  }
+
+  function fail(kind) {
+    var e = ERRORS[kind] || ERRORS.expired;
+    errTitle.textContent = e.title;
+    errText.textContent = e.text;
+    errReload.hidden = !e.reload;
+    errAdd.hidden = !e.add;
+    clearTimeout(watchdog);
+    show("error");
+  }
+
+  function paid() {
+    completed = true;
+    clearTimeout(watchdog);
+    try { sessionStorage.setItem(PAID_KEY, "1"); } catch (e) { /* storage may be blocked */ }
+    // Take the transaction id out of the address bar so a reload cannot reopen a finished checkout.
+    try { history.replaceState(null, "", location.pathname); } catch (e) { /* ignore */ }
+    show("success");
+  }
+
+  function openCheckout() {
+    if (!window.Paddle || !txnId) return;
+    try {
+      window.Paddle.Checkout.open({ transactionId: txnId, settings: { displayMode: "overlay", theme: "light", locale: "en" } });
+    } catch (e) {
+      fail("expired");
+    }
+  }
+
+  function onPaddleEvent(event) {
+    var name = event && event.name;
+    if (name === "checkout.loaded") {
+      clearTimeout(watchdog);
+      if (!completed) show("ready");
+    } else if (name === "checkout.completed") {
+      paid();
+    } else if (name === "checkout.closed") {
+      if (!completed && state !== "error") show("ready");
+    } else if (name === "checkout.error") {
+      if (!completed) fail("expired");
+    }
+  }
+
+  function loadPaddle() {
+    return new Promise(function (resolve, reject) {
+      if (window.Paddle) { resolve(); return; }
+      var s = document.createElement("script");
+      var timer = setTimeout(function () { reject(new Error("timeout")); }, 15000);
+      s.src = PADDLE_SRC;
+      s.async = true;
+      s.onload = function () { clearTimeout(timer); window.Paddle ? resolve() : reject(new Error("no Paddle")); };
+      s.onerror = function () { clearTimeout(timer); reject(new Error("load failed")); };
+      document.head.appendChild(s);
+    });
+  }
+
+  function start() {
+    var id = null;
+    try { id = new URLSearchParams(location.search).get("_ptxn"); } catch (e) { id = null; }
+
+    if (!id) {
+      var wasPaid = false;
+      try { wasPaid = sessionStorage.getItem(PAID_KEY) === "1"; } catch (e) { wasPaid = false; }
+      if (wasPaid) { completed = true; show("success"); } else { fail("missing"); }
+      return;
+    }
+    if (!TXN_PATTERN.test(id)) { fail("invalid"); return; }
+    txnId = id;
+
+    show("loading");
+    loadPaddle().then(function () {
+      // Paddle.js opens the checkout by itself when the address has ?_ptxn=...
+      // (this page is the default payment link). The watchdog below opens it
+      // explicitly if nothing has loaded after a few seconds.
+      if (CONFIG.environment !== "production") window.Paddle.Environment.set("sandbox");
+      window.Paddle.Initialize({
+        token: CONFIG.token,
+        eventCallback: onPaddleEvent,
+        checkout: { settings: { displayMode: "overlay", theme: "light", locale: "en" } }
+      });
+      watchdog = setTimeout(function () { if (state === "loading") openCheckout(); }, 3500);
+      // If even that produces nothing, say so rather than spin forever.
+      setTimeout(function () { if (state === "loading") fail("expired"); }, 20000);
+    }).catch(function () { fail("script"); });
+  }
+
+  reopen.addEventListener("click", openCheckout);
+  errReload.addEventListener("click", function () { location.reload(); });
+
+  start();
+})();
+</script>
+</body>
+</html>
